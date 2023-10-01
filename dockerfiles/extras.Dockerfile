@@ -21,3 +21,9 @@ RUN apt-get update -q \
         # Add more dependencies here
         cowsay \
         sudo
+
+RUN apt install -y ghc
+RUN stack upgrade --binary-only && stack install cabal-install --local-bin-path /usr/local/bin
+RUN which stack
+ENV PATH="$PATH:/root/.local/bin:/usr/local/bin"
+RUN cabal update
