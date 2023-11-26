@@ -23,6 +23,7 @@ RUN apt-get update -q \
         sudo
 
 RUN apt install -y ghc
+RUN apt install vim
 RUN stack upgrade --binary-only && stack install cabal-install --local-bin-path /usr/local/bin
 RUN which stack
 ENV PATH="$PATH:/root/.local/bin:/usr/local/bin"
