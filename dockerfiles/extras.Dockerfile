@@ -22,7 +22,7 @@ RUN apt-get update -q \
         cowsay \
         sudo
 
-RUN apt install -y ghc
+RUN apt-get update && apt install -y ghc
 RUN apt install -y vim
 RUN stack upgrade --binary-only && stack install cabal-install --local-bin-path /usr/local/bin
 RUN which stack
